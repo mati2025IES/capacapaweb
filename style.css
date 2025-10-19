@@ -1,0 +1,119 @@
+:root {
+  --primario: #0077b6;
+  --secundario: #90e0ef;
+  --fondo: #f4f4f9;
+  --texto: #333;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.navbar {
+  background: var(--primario);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navbar .logo {
+  color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--secundario);
+}
+
+.btn {
+  background: var(--primario);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #023e8a;
+}
+
+.productos {
+  text-align: center;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: inline-block;
+  width: 250px;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;  
+  gap: 1.5rem;              
+  flex-wrap: wrap;          
+}
+
+.form-extra {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-extra a {
+  color: var(--primario);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form-extra a:hover {
+  text-decoration: underline;
+}
