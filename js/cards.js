@@ -1,7 +1,7 @@
 const productos = [
-  { img: "imagenes/barco.webp", nombre: "Void Behemoth Battleship", precio: 1500 },
-  { img: "imagenes/moto.webp", nombre: "MOTO GP - DUCATI", precio: 1500 },
-  { img: "imagenes/robot.webp", nombre: "YJ-20 Transforming Mech", precio: 1500 },
+  { img: "imagenes/barco.webp", nombre: "Void Behemoth Battleship", descripcion: "Modelo de nave espacial impreso en 3D con gran nivel de detalle.", precio: 1500 },
+  { img: "imagenes/moto.webp", nombre: "MOTO GP - DUCATI", descripcion: "Réplica 3D de moto de carreras, ideal para fanáticos del motociclismo.", precio: 1500 },
+  { img: "imagenes/robot.webp", nombre: "YJ-20 Transforming Mech", descripcion: "Robot articulado inspirado en el universo sci-fi.", precio: 1500 },
 ];
 
 function crearCards() {
@@ -12,12 +12,23 @@ function crearCards() {
   productos.forEach(p => {
     html += `<div class='card'>
       <img src='${p.img}' alt='${p.nombre}'>
-      <h3>${p.nombre}</h3>
-      <p class='precio'>$${p.precio} ARS</p>
-      <button class='btn'>Comprar</button>
+      <div class="card-content">
+        <h3>${p.nombre}</h3>
+        <p>${p.descripcion}</p>
+        <p class='precio'>$${p.precio} ARS</p>
+        <button class='btn'>Comprar</button>
+      </div>
     </div>`;
   });
-  cont.innerHTML = html;
+
+  const linkCardHTML = `
+    <a href="productos.html" class="card card-link">
+      <h3>Ver todos los productos</h3>
+      <p>Haz clic aquí para ver nuestro catálogo completo.</p>
+      <span class="flecha">&rarr;</span>
+    </a>`;
+
+  cont.innerHTML = html + linkCardHTML;
 }
 
 crearCards();

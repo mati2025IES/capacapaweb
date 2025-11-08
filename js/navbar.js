@@ -1,6 +1,6 @@
 const pages = [
   { title: "Inicio", url: "index.html" },
-  { title: "Productos", url: "#" },
+  { title: "Productos", url: "productos.html" },
 ];
 
 function crearNavbar() {
@@ -8,7 +8,7 @@ function crearNavbar() {
   const loggedIn = localStorage.getItem("loggedIn") === "true";
 
   let navHTML = `<nav class='navbar'>
-    <h1 class='logo'>CapaCapa</h1>
+    <a href="index.html"><h1 class='logo'>CapaCapa</h1></a>
     <ul>`;
 
   pages.forEach(page => {
