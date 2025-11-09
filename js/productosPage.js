@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (loggedIn) {
     try {
-      const respuesta = await fetch("js/productos.json");
+      const respuesta = await fetch("/data/productos.json");
       
       if (!respuesta.ok) {
         throw new Error('Error al cargar el archivo JSON.');
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     } catch (error) {
       console.error("Error cargando los productos:", error);
-      contenedor.innerHTML = "<p>Error al cargar los productos. (Revisa que 'js/productos.json' exista)</p>";
+      contenedor.innerHTML = "<p>Error al cargar los productos.</p>";
     }
   } else {
     contenedor.classList.add("login-requerido");

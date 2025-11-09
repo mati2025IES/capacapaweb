@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       localStorage.setItem("loggedIn", "true");
       
-      window.location.href = "index.html";
+      window.location.href = "/index.html";
     });
   }
 });
