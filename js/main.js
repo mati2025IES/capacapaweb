@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const loggedIn = localStorage.getItem("loggedIn") === "true";
+  const usuario = sessionStorage.getItem("usuario");
   const heroBtn = document.getElementById("hero-registro-btn");
   
-  if (heroBtn && loggedIn) {
+  if (heroBtn && usuario) {
     heroBtn.style.display = "none";
   }
 });

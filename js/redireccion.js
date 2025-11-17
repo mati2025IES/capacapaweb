@@ -5,9 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
       
-      localStorage.setItem("loggedIn", "true");
+      const email = document.getElementById("email").value;
       
-      window.location.href = "/index.html";
+      sessionStorage.setItem("usuario", email);
+      
+      window.location.href = "../index.html";
     });
   }
 });

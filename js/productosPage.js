@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("productos-container");
-  const loggedIn = localStorage.getItem("loggedIn") === "true";
+  const usuario = sessionStorage.getItem("usuario");
 
-  if (loggedIn) {
+  if (usuario) {
     try {
-      const respuesta = await fetch("/data/productos.json");
+      const respuesta = await fetch("../data/productos.json");
       
       if (!respuesta.ok) {
         throw new Error('Error al cargar el archivo JSON.');
       }
       
       const datos = await respuesta.json();
+      const toast = document.createElement("div");
+      toast.id = "toast-notificacion";
+      toast.className = "toast-notificacion";
+      document.body.appendChild(toast);
 
       for (const categoria in datos) {
         const tituloCategoria = document.createElement("h2");
@@ -47,6 +51,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             const valor = parseInt(span.textContent);
             if (valor > 1) span.textContent = valor - 1;
           });
+          
+          card.querySelector(".agregar").addEventListener("click", () => {
+            const cantidad = parseInt(span.textContent);
+            agregarAlCarrito(producto, cantidad);
+          });
 
           grupo.appendChild(card);
         });
@@ -65,3 +74,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
   }
 });
+
+function agregarAlCarrito(producto, cantidad) {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  const item = {
+    titulo: producto.titulo,
+    precio: producto.precio,
+    imagen: producto.imagen,
+    cantidad: cantidad
+  };
+
+  const itemIndex = carrito.findIndex(i => i.titulo === item.titulo);
+
+  if (itemIndex > -1) {
+    carrito[itemIndex].cantidad += cantidad;
+  } else {
+    carrito.push(item);
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  showToast(`"${item.titulo}" añadido al carrito.`);
+}
+
+function showToast(mensaje) {
+  const toast = document.getElementById("toast-notificacion");
+  toast.textContent = mensaje;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}

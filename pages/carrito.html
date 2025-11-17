@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos - CapaCapa</title>
+  <title>Carrito - CapaCapa</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -12,17 +12,25 @@
   </header>
 
   <main class="productos">
-    <h2>Nuestros Productos</h2>
+    <h2>Tu Carrito de Compras</h2>
 
-    <div id="productos-container" class="cards-container">
+    <div id="carrito-container" class="carrito-container">
     </div>
+
+    <div id="carrito-vacio" class="login-requerido" style="display: none;">
+      <h2>Tu carrito está vacío.</h2>
+      <p>Visita nuestra página de productos para añadir artículos.</p>
+    </div>
+
   </main>
+  
+  <div id="toast-notificacion" class="toast-notificacion"></div>
 
   <footer>
     <p>&copy; 2025 CapaCapa - Todos los derechos reservados.</p>
   </footer>
 
   <script src="../js/navbar.js"></script>
-  <script src="../js/productosPage.js"></script>
+  <script src="../js/carrito.js"></script>
 </body>
 </html>
